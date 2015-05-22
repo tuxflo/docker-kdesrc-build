@@ -1,1 +1,1 @@
-Dockerfile-archlinux
+Dockerfile-fedora

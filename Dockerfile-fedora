@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:21
 MAINTAINER Mathieu Tarral <mathieu.tarral@gmail.com>
 
 # FRAMEWORKS            |       BUILD DEPENDENCY
@@ -72,32 +72,26 @@ RUN rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-s
 #---------------------------
 RUN yum -y install gcc-c++ git doxygen cmake bzr vim tar && \
     yum -y install dialog perl-libwww-perl perl-JSON perl-XML-Parser \
-                    qt5-qtbase-devel && \
+                    qt4-devel && \
     yum install -y \
-                    qt5-qtscript-devel \
-                    qt5-qtx11extras-devel libXrender-devel xcb-util-keysyms-devel \
+                    libXrender-devel xcb-util-keysyms-devel \
                     zlib-devel \
                     libxslt-devel docbook-style-xsl \
-                    qt5-qttools-devel qt5-qttools-static \
-                    qt5-qtsvg-devel \
                     systemd-devel \
-                    qt5-qtquick1-devel libepoxy-devel\
+                    libepoxy-devel\
                     boost-devel \
-                    qt5-qtwebkit-devel \
                     libSM-devel pcre-devel qca-ossl openssl-devel \
                     giflib-devel libjpeg-turbo-devel libpng-devel \
                     libXcursor-devel oxygen-fonts-devel \
-                    qt5-qtxmlpatterns-devel \
                     polkit-devel \
                     vlc-devel \
                     gstreamer-devel gstreamer-plugins-bad-free-devel gstreamer1-plugins-bad-free-devel gstreamer1-plugins-base-devel \
                                 NetworkManager-devel NetworkManager-glib-devel && \
     yum install -y \
-                    wayland-devel libwayland-cursor-devel \
                     libattr-devel \
                     ModemManager-devel \
                     xcb-util-image-devel \
-                    PackageKit-Qt5-devel xorg-x11-xkb-utils-devel \
+                    xorg-x11-xkb-utils-devel \
                     libpwquality-devel \
                     xorg-x11-drv-synaptics-devel xorg-x11-server-devel \
                     gtkmm24-devel gtkmm30-devel \
@@ -105,14 +99,12 @@ RUN yum -y install gcc-c++ git doxygen cmake bzr vim tar && \
                     libepoxy-devel \
                     libmms-devel \
                     fontforge-devel \
-                    qt5-qtquick1-devel \
                     exiv2-devel \
                     sane-backends-devel && \
     yum install -y \ 
                     lcms2-devel \
                     hunspell-devel \
                     glui-devel \
-                    qt5-qtmultimedia qt5-multimedia-devel \
                     eigen3-devel \
                     grantlee-devel \
                     qtsinglecoreapplication-devel \
@@ -131,6 +123,8 @@ RUN yum -y install gcc-c++ git doxygen cmake bzr vim tar && \
     useradd -d /home/kdedev -m kdedev && \
     mkdir /work /qt && \
     chown kdedev /work /qt
+
+RUN yum install -y automoc phonon-devel qtwebkit-devel attica-devel dbusmenu-qt-devel strigi-devel qjson-devel libcurl-devel xsd xerces
 
 # some symlinks in /root to handle sudo ./kdesrc-build
 RUN ln -s /home/kdedev/.kdesrc-buildrc /root/.kdesrc-buildrc && \
