@@ -111,7 +111,7 @@ Now you can run any applications, including `startkde` !
 
 ## kdesrc-buildrc configuration
 
-To configure `kdesrc-buildrc`, take a look at [http://kdesrc-build.kde.org/documentation/](http://kdesrc-build.kde.org/documentation/¬)
+To configure `kdesrc-buildrc`, take a look at [http://kdesrc-build.kde.org/documentation/](http://kdesrc-build.kde.org/documentation/)
 
 ## Use a specific version of Qt
 
